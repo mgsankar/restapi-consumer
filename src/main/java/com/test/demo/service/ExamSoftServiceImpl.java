@@ -1,16 +1,12 @@
 package com.test.demo.service;
 
-import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
-
-import javax.imageio.ImageIO;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,11 +20,6 @@ import org.springframework.web.client.RestTemplate;
 public class ExamSoftServiceImpl implements ExamSoftService {
     static Logger log = Logger.getLogger(ExamSoftServiceImpl.class.getName());
 	
-	private RestTemplate restTemplate;
-    
-	@Value("${number_images_to_download}")
-	private int noOfImagesToDownload;
-	
 	@Value("${download_folder}")
 	private String downloadFolder;
 	
@@ -37,7 +28,7 @@ public class ExamSoftServiceImpl implements ExamSoftService {
 	public LinkedHashMap<?, ?> getImagesByEarthDate(String earthDt) throws Exception {
 		ResponseEntity<LinkedHashMap> respEntity = null;
 		long t1 = 0;
-		log.info("Earth Date: " + earthDt);
+		log.info("Selected Earth Date: " + earthDt);
 		String url = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=" + earthDt
 				+ "&api_key=DEMO_KEY";
 		try {

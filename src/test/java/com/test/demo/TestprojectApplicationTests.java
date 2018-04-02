@@ -23,7 +23,7 @@ public class TestprojectApplicationTests {
 	public void testGetImagesByEarthDate() throws Exception {
 	
 		LinkedHashMap<?,?> imageList = examSoftService.getImagesByEarthDate("2017-12-17");
-		Assert.assertNotNull(imageList);//assertEquals("NO IMAGES AVAILABLE", expected, actual, delta); assertNotNull(, imageList);
+		Assert.assertNotNull(imageList!=null?imageList:null);
 	}
 
 }
